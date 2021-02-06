@@ -1,0 +1,67 @@
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+
+        <div class="card">
+
+            <div class="card-title title-div">
+                <h3 class="text-center mt-2">Sign In</h3>
+            </div>
+
+            <div class="card-body ">
+                <form #login_form="ngForm" (ngSubmit)="onSubmit_login_form()">
+                    <!-- Email input -->
+                    <div class="form-group ">
+                        <label for="username">Username</label><small class="text-muted"><i>(required<span
+                                    class="small-label">*</span>)</i></small>
+                        <input id="username" [ngClass]="{ 'is-invalid': username.touched && username.invalid }"
+                            class="form-control" name="username" [(ngModel)]="login_model.username" #username="ngModel"
+                            required />
+                        <!--  -->
+                        <small class="invalid-feedback"> Username is required!
+                        </small>
+
+                    </div>
+
+                    <!-- Password input -->
+                    <div class="form-group">
+                        <label class="form-label" for="password">Password</label><small
+                            class="text-muted"><i>(required<span class="small-label">*</span>)</i></small>
+                        <input type="password" id="password"
+                            [ngClass]="{ 'is-invalid': password.touched && password.invalid }" class="form-control"
+                            name="password" [(ngModel)]="login_model.password" #password="ngModel" required />
+                        <small class="invalid-feedback">Password is
+                            required!</small>
+
+
+                    </div>
+
+                    <div>
+                        <!-- Checkbox -->
+                        <div class="form-group float-left">
+                            <input type="checkbox" value="" id="remember" name="remember"
+                                [(ngModel)]="login_model.remember" />
+                            <label class="ml-2" for="remember"> Remember me </label>
+
+                        </div>
+
+
+                        <div class="float-right">
+                            <!-- Simple link -->
+                            <a href="#!">Forgot password?</a>
+                        </div>
+
+                    </div>
+                    <!-- Submit button -->
+                    <button type="submit" class="btn btn-primary btn-block" [disabled]="!login_form.valid">Sign
+                        in</button>
+
+                    <div class="bottom-text">
+                        <p class="text-center mt-2">Not a member yet? <a [routerLink]="['/register']">Sign up</a>.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+</div>

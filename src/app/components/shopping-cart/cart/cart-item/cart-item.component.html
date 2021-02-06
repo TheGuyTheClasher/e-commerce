@@ -1,0 +1,5 @@
+<div class="cart-item">
+    <span>{{ cartItem.productName }}</span> x <span>{{ cartItem.qty }}: </span>
+    <strong>{{ (cartItem.qty * cartItem.price) | currency: "INR" }}</strong>
+    <i class="fa fa-minus-circle float-right" aria-hidden="true" (click)="removeFromCart(cartItem.id)"></i>
+</div>
